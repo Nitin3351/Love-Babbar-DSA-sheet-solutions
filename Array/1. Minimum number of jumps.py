@@ -1,3 +1,4 @@
+"""
 Given an array of N integers arr[] where each element represents the max length of the jump that can be made forward from that element.
 Find the minimum number of jumps to reach the end of the array (starting from the first element). If an element is 0, then you cannot move through that element.
 
@@ -24,3 +25,30 @@ Output: 2
 Explanation: 
 First we jump from the 1st to 2nd element 
 and then jump to the last element.
+"""
+#User function Template for python3
+class Solution:
+	def minJumps(self, arr, n):
+	    cnt= 0
+	    i=0
+	    while i<n-1:
+	        if arr[i]==0:
+	            cnt=-1
+	            break
+	        else:
+	            i+=arr[i]
+	            cnt+=1
+        return cnt
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+if __name__ == '__main__':
+	T=int(input())
+	for i in range(T):
+		n = int(input())
+		Arr = [int(x) for x in input().split()]
+		ob = Solution()
+		ans = ob.minJumps(Arr,n)
+		print(ans)
+# } Driver Code Ends
